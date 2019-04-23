@@ -188,8 +188,14 @@ TARGET_RIL_VARIANT := caf
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-# Treble
-TARGET_COPY_OUT_VENDOR := system/vendor
+# Treble -(set to treble only until treble builds are stable)
+ENABLE_VENDOR_IMAGE := true
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
+PRODUCT_VENDOR_MOVE_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_SHIPPING_API_LEVEL := 25
+PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
